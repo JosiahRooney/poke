@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %}Pokes | Pokes{% endblock %}
+{% block body_class %}pokes{% endblock %}
+{% block main_wrap %}
+    <div class="top_row">
+        <h1>Welcome, {{ user.first_name }}!</h1><!--
+     --><a href="/logout">Logout</a>
+    </div>
+    {% if total_pokes %}
+        <p class="num_pokes">
+            {% if total_pokes == 1%}
+                {{ total_pokes }} person poked you.
+            {% else %}
+                {{ total_pokes }} people poked you.
+            {% endif %}
+        </p>
+    {% endif %}
+    <div class="poked_by">
+        {% if pokes %}
+            {% for poke in pokes %}
+                <p>{{ poke.first_name }} poked you {{ poke.total_pokes }} times</p>
+            {% endfor %}
+        {% else %}
+            <p class="subtle">No one has poked you yet!</p>
+        {% endif %}
+    </div>
+    <div class="poke_to">
+        <h4>People you may want to poke:</h4>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Alias</th>
+                <th>Email Address</th>
+                <th>Poke History</th>
+                <th>Action</th>
+            </tr>
+            {% if users %}
+                {% for user in users %}
+                    {% if user.user_id != session['user']['user_id'] %}
+                        <tr>
+                            <td>{{ user.first_name }} {{ user.last_name }}</td>
+                            <td>{{ user.alias }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.total_pokes }} pokes</td>
+                            <td><a href="/poke/user/{{ user.user_id }}"><button type="button">Poke</button></a></td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}

@@ -1,8 +1,28 @@
-<html>
-  <head>
-    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
-  </head>
-  <body>
-    The best place to start is the "WelcomeController.py" file in app/controllers.
-  </body>
-</html>
+{% extends "layout.html" %}
+{% block title %}Pokes{% endblock %}
+{% block body_class %}home{% endblock %}
+{% block main_wrap %}
+    <h1>Welcome!</h1>
+    <form action="/register" class="register" method="POST">
+        <fieldset>
+            <legend>Register</legend>
+            <p><label>First Name: <input type="text" name="first_name" placeholder="First name"></label></p>
+            <p><label>Last Name: <input type="text" name="last_name" placeholder="Last Name"></label></p>
+            <p><label>Alias: <input type="text" name="alias" placeholder="Alias (username)"></label></p>
+            <p><label>Email: <input type="email" name="email" placeholder="example@domain.com"></label></p>
+            <p><label>Password: <input type="password" name="password" placeholder="Password"></label></p>
+            <p><label>Confirm PW:
+                <input type="password" name="password_confirm" placeholder="Confirm Password"></label></p>
+            <p><label>Date of Birth: <input type="date" name="birthday" placeholder="01/01/1990"></label></p>
+            <button type="submit">Register</button>
+        </fieldset>
+    </form><!--
+ --><form action="/login" class="login" method="POST">
+        <fieldset>
+            <legend>Login</legend>
+            <p><label><input type="email" name="email" placeholder="example@domain.com"></label></p>
+            <p><label><input type="password" name="password" placeholder="Password"></label></p>
+            <button type="submit">Login</button>
+        </fieldset>
+    </form>
+{% endblock %}

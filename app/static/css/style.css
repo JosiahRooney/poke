@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.main_wrap {
+    width: 1000px;
+    margin: auto;
+}
+
+.top_row h1,
+.top_row a,
+.home form {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+}
+
+.top_row h1,
+.top_row a {
+    vertical-align: middle;
+}
+
+.top_row a {
+    text-align: right;
+}
+
+.poked_by {
+    border: 2px solid;
+    width: 33%;
+    padding: 10px;
+}
+
+.poked_by p {
+    margin: 3px;
+}
+
+.subtle {
+    color: #777;
+    font-size: 0.8rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid;
+}
+
+table tr:first-child {
+    background-color: #ccc;
+}
+
+table tr:nth-child(even) {
+    background-color: #eee;
+}
+
+th:not(:first-child),
+td:not(:first-child) {
+    border-left: 2px solid;
+}
+
+td {
+    padding: 4px 8px;
+}
+
+.success {
+    color: #0a0;
+}
+.error {
+    color: #a00;
+}
