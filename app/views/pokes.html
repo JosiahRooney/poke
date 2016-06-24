@@ -6,7 +6,7 @@
         <h1>Welcome, {{ user.first_name }}!</h1><!--
      --><a href="/logout">Logout</a>
     </div>
-    {% if total_pokes %}
+    {% if total_pokes > 0 %}
         <p class="num_pokes">
             {% if total_pokes == 1%}
                 {{ total_pokes }} person poked you.

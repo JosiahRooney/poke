@@ -34,13 +34,11 @@ class Users(Controller):
         user = self.models['User'].get_user(session['user']['user_id'])             # get me
         users = self.models['Poke'].get_all()                                       # get them
         pokes = self.models['Poke'].get_pokes_by_user(session['user']['user_id'])   # get pokes for little box
+        total_pokes = 0
         if pokes['pokes']:
-            total_pokes = 0
             for poke in pokes['pokes']:
                 print poke
                 total_pokes += 1
-        else:
-            total_pokes = 0
         if user:
             return self.load_view('pokes.html', user=user['user'], users=users['pokes'], pokes=pokes['pokes'],
                                   total_pokes=total_pokes)
