@@ -39,6 +39,8 @@ class Users(Controller):
             for poke in pokes['pokes']:
                 print poke
                 total_pokes += 1
+        else:
+            total_pokes = 0
         if user:
             return self.load_view('pokes.html', user=user['user'], users=users['pokes'], pokes=pokes['pokes'],
                                   total_pokes=total_pokes)
